@@ -15,6 +15,12 @@ export default function CreateNoteScreen() {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
+  const currentDateLabel = new Date().toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).toUpperCase();
+
   const handleSave = () => {
     const note = addNote({ title, body });
     router.replace(`/note-detail?id=${note.id}`);
@@ -32,7 +38,7 @@ export default function CreateNoteScreen() {
         </View>
         <View style={styles.metaRow}>
           <Ionicons name="calendar-outline" size={19} color={theme.label} />
-          <Text style={[styles.meta, { color: theme.label }]}>DECEMBER 14, 2023</Text>
+          <Text style={[styles.meta, { color: theme.label }]}>{currentDateLabel}</Text>
           <Text style={[styles.dot, { color: theme.label }]}>•</Text>
           <Ionicons name="pricetag-outline" size={19} color={theme.label} />
           <Text style={[styles.meta, { color: theme.label }]}>PERSONAL</Text>
