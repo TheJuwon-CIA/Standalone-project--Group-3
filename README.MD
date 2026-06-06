@@ -31,3 +31,40 @@ notes-app/
 ├── styles/globalStyles.js
 ├── package.json
 └── README.md
+
+## Installation & Running
+
+1. **Clone or create the project**  
+   ```bash
+   npx create-expo-app notes-app
+   cd notes-app
+Replace default files with the code above.
+
+Install dependencies
+
+bash
+npm install
+Start the app
+
+bash
+npx expo start
+Scan QR code with Expo Go (Android/iOS) or run on emulator.
+
+Usage
+Type a note (title optional) → press + Add Note
+
+Tap any note to read it in full screen
+
+Tap the 🗑️ icon to delete a note
+
+All notes are automatically saved and reloaded when you reopen the app
+
+Customisation
+Change accent colour in styles/globalStyles.js (colors.primary)
+
+Extend the store to add edit functionality 
+
+Add search by filtering notes in the store
+
+License
+MIT
