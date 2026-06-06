@@ -1,15 +1,16 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Note, NoteStore } from '../types/note';
 
-const useNoteStore = create(
+const useNoteStore = create<NoteStore>()(
   persist(
     (set, get) => ({
       notes: [],
 
-      addNote: (title, content) => {
+      addNote: (title: string, content: string): boolean => {
         if (!content.trim()) return false;
-        const newNote = {
+        const newNote: Note = {
           id: Date.now().toString(),
           title: title.trim() || 'Untitled',
           content: content.trim(),
@@ -19,19 +20,21 @@ const useNoteStore = create(
         return true;
       },
 
-      deleteNote: (id) =>
+      deleteNote: (id: string): void => {
         set((state) => ({
           notes: state.notes.filter((note) => note.id !== id),
-        })),
+        }));
+      },
 
-      updateNote: (id, title, content) =>
+      updateNote: (id: string, title: string, content: string): void => {
         set((state) => ({
           notes: state.notes.map((note) =>
             note.id === id
               ? { ...note, title: title.trim() || 'Untitled', content: content.trim() }
               : note
           ),
-        })),
+        }));
+      },
     }),
     {
       name: 'notes-storage',
