@@ -133,7 +133,7 @@ async function generateAssets(): Promise<void> {
     await writePNG('favicon.png', createSimplePNG(32, 32, 98, 0, 238));
   }
   
-  console.log('\n✅ All assets generated successfully in /assets');
+  console.log('\n All assets generated successfully in /assets');
 }
 
 // Run the generator
