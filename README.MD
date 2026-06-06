@@ -23,23 +23,20 @@ Create, view, and delete notes – all data survives app restarts.
 
 ## Project Structure
 notes-app-ts/
+├── assets/
+│   ├── generate-assets.ts   
+│   ├── icon.png             
+│   ├── splash.png           
+│   ├── adaptive-icon.png    
+│   └── favicon.png          
 ├── App.tsx
-├── app.json
+├── store/noteStore.ts
+├── components/...
+├── styles/globalStyles.ts
+├── types/note.ts
 ├── package.json
 ├── tsconfig.json
-├── README.md
-├── store/
-│   └── noteStore.ts
-├── components/
-│   ├── NoteCard.tsx
-│   ├── NoteInput.tsx
-│   └── NoteModal.tsx
-├── styles/
-│   └── globalStyles.ts
-└── types/
-    └── note.ts
-
-text
+└── README.md
 
 ## Installation & Running
 
