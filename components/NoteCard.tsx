@@ -1,8 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Note } from '../types/note';
 import { colors } from '../styles/globalStyles';
 
-const NoteCard = ({ note, onPress, onDelete }) => {
+interface NoteCardProps {
+  note: Note;
+  onPress: () => void;
+  onDelete: () => void;
+}
+
+const NoteCard: React.FC<NoteCardProps> = ({ note, onPress, onDelete }) => {
   const formattedDate = new Date(note.createdAt).toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
