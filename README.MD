@@ -21,16 +21,6 @@ Create, view, and delete notes – all data survives app restarts.
 - JavaScript (ES6+)  
 
 ## Project Structure
-
-## Installation & Running
-
-1. **Clone or create the project**  
-   ```bash
-   npx create-expo-app notes-app
-   cd notes-app
-Replace default files with the code above.
-
-Install dependencies
 notes-app/
 ├── App.js
 ├── app.json
@@ -44,6 +34,18 @@ notes-app/
 │   └── NoteModal.js
 └── styles/
     └── globalStyles.js
+
+## Installation & Running
+
+1. **Clone or create the project**  
+   ```bash
+   npx create-expo-app notes-app
+   cd notes-app
+
+2. Replace default files with the code above.
+
+3. Install dependencies
+
 bash
 npm install
 Start the app
