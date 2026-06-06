@@ -21,3 +21,13 @@ Create, view, and delete notes – all data survives app restarts.
 - JavaScript (ES6+)  
 
 ## Project Structure
+notes-app/
+├── App.js
+├── store/noteStore.js
+├── components/
+│ ├── NoteCard.js
+│ ├── NoteInput.js
+│ └── NoteModal.js
+├── styles/globalStyles.js
+├── package.json
+└── README.md
