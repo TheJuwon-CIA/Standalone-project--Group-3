@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
 
-const NoteInput = ({ onAddNote }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+interface NoteInputProps {
+  onAddNote: (title: string, content: string) => boolean;
+}
+
+const NoteInput: React.FC<NoteInputProps> = ({ onAddNote }) => {
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
 
   const handleAdd = () => {
     const success = onAddNote(title, content);
