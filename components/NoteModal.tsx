@@ -1,8 +1,15 @@
 import React from 'react';
 import { Modal, View, Text, TouchableOpacity } from 'react-native';
+import { Note } from '../types/note';
 import { globalStyles } from '../styles/globalStyles';
 
-const NoteModal = ({ visible, note, onClose }) => {
+interface NoteModalProps {
+  visible: boolean;
+  note: Note | null;
+  onClose: () => void;
+}
+
+const NoteModal: React.FC<NoteModalProps> = ({ visible, note, onClose }) => {
   if (!note) return null;
 
   const formattedDateTime = new Date(note.createdAt).toLocaleString(undefined, {
