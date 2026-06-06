@@ -24,16 +24,20 @@ Create, view, and delete notes – all data survives app restarts.
 ## Project Structure
 notes-app-ts/
 ├── App.tsx
-├── store/noteStore.ts
-├── components/
-│ ├── NoteCard.tsx
-│ ├── NoteInput.tsx
-│ └── NoteModal.tsx
-├── styles/globalStyles.ts
-├── types/note.ts
+├── app.json
 ├── package.json
 ├── tsconfig.json
-└── README.md
+├── README.md
+├── store/
+│   └── noteStore.ts
+├── components/
+│   ├── NoteCard.tsx
+│   ├── NoteInput.tsx
+│   └── NoteModal.tsx
+├── styles/
+│   └── globalStyles.ts
+└── types/
+    └── note.ts
 
 text
 
