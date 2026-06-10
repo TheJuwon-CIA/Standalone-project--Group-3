@@ -6,13 +6,13 @@ Create, view, and delete notes – all data survives app restarts.
 
 ## Features
 
-- ✅ Create notes with title + content  
-- ✅ View full note in a modal  
-- ✅ Delete notes with a tap  
-- ✅ FlatList for efficient scrolling  
-- ✅ Zustand global state management with persistence  
-- ✅ AsyncStorage for offline storage  
-- ✅ **Full TypeScript** – strict mode, typed store, components, and props  
+-  Create notes with title + content  
+-  View full note in a modal  
+-  Delete notes with a tap  
+-  FlatList for efficient scrolling  
+-  Zustand global state management with persistence  
+-  AsyncStorage for offline storage  
+-  **Full TypeScript** – strict mode, typed store, components, and props  
 
 ## Tech Stack
 
