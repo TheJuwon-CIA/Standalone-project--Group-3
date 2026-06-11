@@ -17,7 +17,7 @@ export default function TabsLayout() {
         tabBarActiveTintColor: theme.primary,
         tabBarInactiveTintColor: theme.textSoft,
         tabBarStyle: {
-          height: 70,
+          height: 100,
           paddingTop: 8,
           paddingBottom: 10,
           backgroundColor: theme.nav,
@@ -60,3 +60,4 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
+
