@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Note } from '../types/note';
-import { colors } from '../styles/globalStyles';
+import { colors } from '../styles/globalstyles';
 
 interface NoteCardProps {
   note: Note;
@@ -73,3 +73,4 @@ const styles = StyleSheet.create({
 });
 
 export default NoteCard;
+

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { SafeAreaView, FlatList, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import useNoteStore from './store/noteStore';
+import useNoteStore from './store/notestore';
 import NoteInput from './components/NoteInput';
 import NoteCard from './components/NoteCard';
 import NoteModal from './components/NoteModal';
 import { Note } from './types/note';
-import { globalStyles } from './styles/globalStyles';
+import { globalStyles } from './styles/globalstyles';
 
 export default function App() {
   const { notes, addNote, deleteNote } = useNoteStore();
@@ -51,3 +51,4 @@ export default function App() {
     </SafeAreaView>
   );
 }
+

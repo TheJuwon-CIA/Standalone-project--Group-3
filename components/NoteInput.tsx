@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
-import { globalStyles } from '../styles/globalStyles';
+import { globalStyles } from '../styles/globalstyles';
 
 interface NoteInputProps {
   onAddNote: (title: string, content: string) => boolean;
@@ -41,3 +41,4 @@ const NoteInput: React.FC<NoteInputProps> = ({ onAddNote }) => {
 };
 
 export default NoteInput;
+

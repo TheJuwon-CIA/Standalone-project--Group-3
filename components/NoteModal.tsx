@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, View, Text, TouchableOpacity } from 'react-native';
 import { Note } from '../types/note';
-import { globalStyles } from '../styles/globalStyles';
+import { globalStyles } from '../styles/globalstyles';
 
 interface NoteModalProps {
   visible: boolean;
@@ -34,3 +34,4 @@ const NoteModal: React.FC<NoteModalProps> = ({ visible, note, onClose }) => {
 };
 
 export default NoteModal;
+

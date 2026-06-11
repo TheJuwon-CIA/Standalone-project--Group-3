@@ -1,21 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
-import { execSync } from 'child_process';
 
 // Attempt to load sharp (optional)
 let sharp: any = null;
 try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports -- sharp is optional for this Node asset script.
   sharp = require('sharp');
   console.log('✓ Using sharp for high-quality PNG generation');
 } catch {
   console.log('⚠ Sharp not installed. Using basic PNG generator (solid colors).');
 }
 
-interface PNGChunk {
-  type: string;
-  data: Buffer;
-}
 
 function createChunk(type: string, data: Buffer): Buffer {
   const chunkLength = Buffer.alloc(4);
@@ -141,3 +137,4 @@ generateAssets().catch((err: Error) => {
   console.error('Failed to generate assets:', err.message);
   process.exit(1);
 });
+
