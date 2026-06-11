@@ -5,17 +5,25 @@ import { useRouter } from 'expo-router';
 import { SHADOWS } from '../../constants/theme';
 import { useTheme } from '../../context/ThemeContext';
 
-export function FloatingActionButton() {
+export function FloatingActionButton({ icon = 'add', onPress }: { icon?: string; onPress?: () => void }) {
   const router = useRouter();
   const { theme } = useTheme();
+
+  const handlePress = () => {
+    if (onPress) {
+      onPress();
+    } else {
+      router.push('/create-note' as any);
+    }
+  };
 
   return (
     <TouchableOpacity
       activeOpacity={0.85}
-      onPress={() => router.push('/create-note' as any)}
+      onPress={handlePress}
       style={[styles.button, { backgroundColor: theme.primary }, SHADOWS.md]}
     >
-      <Ionicons name="add" size={32} color={theme.primaryText} />
+      <Ionicons name={icon as any} size={32} color={theme.primaryText} />
     </TouchableOpacity>
   );
 }

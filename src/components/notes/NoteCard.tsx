@@ -4,11 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { COLORS, RADIUS, SHADOWS, SPACING } from '../../constants/theme';
 import { useTheme } from '../../context/ThemeContext';
+import { useNotes } from '../../hooks/useNotes';
 import { truncate } from '../../utils/helpers';
 
 export function NoteCard({ note, compact = false, featured = false }: any) {
   const router = useRouter();
   const { theme } = useTheme();
+  const { toggleFavorite } = useNotes();
   const isLinkFeature = featured && note.title.includes('Design Inspiration');
 
   return (
@@ -48,11 +50,16 @@ export function NoteCard({ note, compact = false, featured = false }: any) {
               </View>
             ))}
           </View>
-          <Ionicons
-            name={note.favorite ? 'star' : 'star-outline'}
-            size={20}
-            color={isLinkFeature ? theme.primaryText : theme.primary}
-          />
+          <TouchableOpacity
+            onPress={() => toggleFavorite(note.id)}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons
+              name={note.favorite ? 'star' : 'star-outline'}
+              size={20}
+              color={isLinkFeature ? theme.primaryText : theme.primary}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </TouchableOpacity>

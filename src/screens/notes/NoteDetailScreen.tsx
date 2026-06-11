@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Header } from '../../components/common/Header';
@@ -111,6 +111,23 @@ export default function NoteDetailScreen() {
         ) : (
           <Text style={[styles.paragraph, { color: theme.text }]}>{note.body || note.excerpt}</Text>
         )}
+        
+        {note.attachments && note.attachments.length > 0 && (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: 16 }}>
+            {note.attachments.map((att: any, i: number) => (
+              <View key={i} style={[styles.attachmentBox, { borderColor: theme.border, backgroundColor: theme.surface }]}>
+                {att.type === 'image' ? (
+                  <Image source={{ uri: att.uri }} style={styles.attachmentImage} />
+                ) : (
+                  <View style={styles.attachmentPlaceholder}>
+                    <Ionicons name={att.type === 'video' ? 'videocam' : 'mic'} size={24} color={theme.primary} />
+                    <Text style={[styles.attachmentText, { color: theme.textSoft }]}>{att.type}</Text>
+                  </View>
+                )}
+              </View>
+            ))}
+          </ScrollView>
+        )}
       </View>
     </Screen>
   );
@@ -188,6 +205,30 @@ const styles = StyleSheet.create({
     minHeight: 260,
     fontSize: 15,
     lineHeight: 23,
+  },
+  attachmentBox: {
+    width: 80,
+    height: 80,
+    marginRight: SPACING.sm,
+    borderRadius: RADIUS.md,
+    borderWidth: 1,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  attachmentImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  attachmentPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  attachmentText: {
+    fontSize: 10,
+    marginTop: 4,
+    textTransform: 'capitalize',
   },
 });
 

@@ -32,11 +32,12 @@ export const useNoteStore = create<any>()(
           tags: ['Personal'],
           favorite: false,
           type: 'text',
+          attachments: [],
           createdAt: Date.now(),
           updatedAt: Date.now(),
         },
       ],
-      addNote: ({ title, body, tags = ['Personal'] }) => {
+      addNote: ({ title, body, tags = ['Personal'], favorite = false }) => {
         const timestamp = Date.now();
         const note = {
           id: `${timestamp}`,
@@ -47,8 +48,9 @@ export const useNoteStore = create<any>()(
           relativeTime: 'Just now',
           icon: 'document-text-outline',
           tags,
-          favorite: false,
+          favorite,
           type: 'text',
+          attachments: [],
           createdAt: timestamp,
           updatedAt: timestamp,
         };
@@ -63,12 +65,13 @@ export const useNoteStore = create<any>()(
             if (note.id !== id) return note;
 
             const nextTitle = updates.title?.trim() || 'Untitled Note';
-            const nextBody = updates.body?.trim() || '';
+            const nextBody = updates.body !== undefined ? updates.body.trim() : note.body;
             return {
               ...note,
               title: nextTitle,
               body: nextBody,
               excerpt: makeExcerpt(nextBody),
+              attachments: updates.attachments || note.attachments || [],
               relativeTime: 'Just now',
               updatedAt: timestamp,
             };
